@@ -1,46 +1,52 @@
-
-# 🛰️ Virtual Sensor Fusion Engine (Firmware Simulation Project)
+# 🛰️ Virtual Sensor Fusion Engine – Advanced Firmware Simulation (RTOS + Adaptive Filtering)
 
 ## 🎯 Objective
-Simulate real-time sensor fusion to estimate **pitch**, **roll**, and **yaw** using:
-- Simulated accelerometer, gyroscope, and magnetometer data (CSV)
-- Complementary filter algorithm in Embedded C
-- RTOS-style task logic and modular structure
-- Python visualization for result analysis
+This is a  firmware simulation project that computes device orientation (pitch, roll, yaw) using **adaptive complementary filtering**, **real-time scheduling**, and **task deadline tracking** – all built in Embedded C and Python.
+
+
+
+## 🚀 Key Features
+
+- ✅ **Simulated Sensor Fusion** from CSV-based accelerometer, gyroscope, and magnetometer data
+- ✅ **Adaptive Complementary Filter** with noise handling and dynamic alpha
+- ✅ **Task Deadline Monitoring** with jitter and deadline miss logging
+- ✅ **RTOS-style Scheduling** using Windows timing APIs
+- ✅ **Orientation Logging + Visualization**
+- ✅ **No Microcontroller, Sensor, or Docker Required**
 
 ---
 
 ## 📁 Folder Structure
 ```
 VirtualSensorFusion/
-├── c/                   # All Embedded C source code
-├── data/                # Simulated sensor inputs
-├── output/              # Logs generated from fusion output
-├── python/              # Orientation plot script
+├── c/                   # C source code (RTOS + Fusion)
+├── data/                # Simulated sensor input (100Hz)
+├── output/              # Logs: orientation + task metrics
+├── python/              # Python script for plotting
 ```
 
 ---
 
-## 🧠 System Architecture
+## 🧠 Architecture Diagram
 
 flowchart TD
-    A[CSV Sensor Data] --> B[Sensor Reading Tasks]
-    B --> C[Fusion Estimator (C)]
-    C --> D[Orientation Log CSV]
-    D --> E[Python Plotter]
+    A[CSV Sensor Data] --> B[Sensor Reading (C)]
+    B --> C[Adaptive Complementary Filter]
+    C --> D[Orientation CSV Output]
+    C --> E[Execution Metrics Log]
+    D --> F[Python Plot Viewer]
 ```
 
 ---
 
-## ⚙️ How to Run
-
-### 1. Compile C Code (MinGW/MSVC)
+## ⚙️ Build & Run (Windows)
+### Step 1 – Compile & Run
 ```bash
-gcc c/main.c c/fusion.c -o output/fusion_sim.exe
+gcc c/main.c c/fusion.c c/scheduler.c c/task_monitor.c -o output/fusion_sim.exe
 output/fusion_sim.exe
 ```
 
-### 2. Plot Orientation in Python
+### Step 2 – Visualize Output
 ```bash
 cd python
 python plot_orientation.py
@@ -48,12 +54,21 @@ python plot_orientation.py
 
 ---
 
-## 📈 Output
-Generates `orientation_log.csv`:
+## 📈 Outputs
+
+### `orientation_log.csv`
 ```
 Time,Pitch,Roll,Yaw
 0,0.00,0.00,0.00
-1,0.02,0.01,0.01
+1,0.03,0.01,0.01
+...
+```
+
+### `metrics_log.csv`
+```
+Time(ms),Task,Exec_Time(ms),Deadline(ms),Status
+0,Fusion,3.12,10.00,Met
+1,Fusion,3.14,10.00,Met
 ...
 ```
 
@@ -61,5 +76,4 @@ Time,Pitch,Roll,Yaw
 
 ## 👩‍💻 Author
 **Nikita Sinha**  
-📍 Master’s in ECE – Real-Time Systems & Firmware  
-🔗 [LinkedIn Profile](https://www.linkedin.com/in/nikita-sinhaa/)
+🔧 Firmware & Embedded Systems | M.S. Electrical and Computer Engineering  
