@@ -22,7 +22,7 @@ VirtualSensorFusion/
 ---
 
 ## 🧠 System Architecture
-```mermaid
+
 flowchart TD
     A[CSV Sensor Data] --> B[Sensor Reading Tasks]
     B --> C[Fusion Estimator (C)]
