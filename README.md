@@ -4,7 +4,7 @@
 This is a  firmware simulation project that computes device orientation (pitch, roll, yaw) using **adaptive complementary filtering**, **real-time scheduling**, and **task deadline tracking** – all built in Embedded C and Python.
 
 
-
+---
 ## 🚀 Key Features
 
 - ✅ **Simulated Sensor Fusion** from CSV-based accelerometer, gyroscope, and magnetometer data
