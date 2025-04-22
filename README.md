@@ -75,5 +75,4 @@ Time(ms),Task,Exec_Time(ms),Deadline(ms),Status
 ---
 
 ## 👩‍💻 Author
-**Nikita Sinha**  
-🔧 Firmware & Embedded Systems | M.S. Electrical and Computer Engineering  
+**Nikita Sinha** -🔧 Firmware & Embedded Systems | M.S. Electrical and Computer Engineering  
